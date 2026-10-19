@@ -2,6 +2,11 @@
 
 cmake_minimum_required(VERSION 3.31.6) # 指定cmake编译器最低版本
 
+project(server-core 
+        VERSION 1.0.0 
+        LANGUAGES CXX C
+) # 设置项目名称为server-core，版本为1.0.0，使用的语言为C++和C
+
 set(CMAKE_C_COMPILER "/usr/bin/gcc" CACHE FILEPATH "C compiler" FORCE) # 设置C编译器为gcc，并缓存路径，强制使用该编译器
 set(CMAKE_CXX_COMPILER "/usr/bin/g++" CACHE FILEPATH "C++ compiler" FORCE) # 设置C++编译器为g++，并缓存路径，强制使用该编译器
 
@@ -9,7 +14,6 @@ set(CMAKE_CXX_STANDARD 20) # 设置C++标准为C++20
 set(CMAKE_CXX_STANDARD_REQUIRED ON) # 设置C++标准为必需
 set(CMAKE_CXX_EXTENSIONS ON) # 设置C++扩展为ON，允许使用编译器特定的扩展
 
-project(serverCore VERSION 1.0.0 LANGUAGES CXX C) # 设置项目名称为server-core，版本为1.0.0，使用的语言为C++和C
 include(GNUInstallDirs) # 设置安装目录为GNU标准目录 避免硬编码
 include(CMakePackageConfigHelpers) # 生成包配置文件, 支持外部项目find_package(server-core) 来查找该项目
 
@@ -29,7 +33,7 @@ message(STATUS "Compilor default work jobs: ${CMAKE_BUILD_PARALLEL_LEVEL}") # �
 
 include(cmake/ServerCoreOptions.cmake) # 包含编译器选项配置文件
 
-add_subdirectory(sCore) # 添加sCore目录
+add_subdirectory(server-core) # 添加 server-core 目录
 if(BUILD_TESTS)
     enable_testing() # 启用测试功能
     add_subdirectory(tests) # 添加测试目录
