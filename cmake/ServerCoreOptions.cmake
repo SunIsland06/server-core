@@ -25,7 +25,7 @@ target_link_options(server-core-options INTERFACE
 )
 
 target_compile_definitions(server-core-options INTERFACE
-    $<$<CONFIG:Debug>:sCore_DEBUG>   # Debug模式下定义DEBUG宏
+    $<$<CONFIG:Debug>:SERVER_CORE_DEBUG>   # Debug模式下定义DEBUG宏
 )
 
 target_compile_options(server-core-options INTERFACE 
